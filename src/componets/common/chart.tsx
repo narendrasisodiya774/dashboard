@@ -41,7 +41,7 @@ const customLegendPlugin = {
       ctx.fill();
 
       // Draw the legend text
-      ctx.fillStyle = "#000"; // Text color
+      ctx.fillStyle = "#000";
       ctx.font = "bold 12px Arial";
       ctx.fillText(item.text, xStart + index * 60 + radius + 5, yStart + 5); // Adjust text position next to circle
     });

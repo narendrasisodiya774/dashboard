@@ -1,4 +1,3 @@
-// components/ShipmentInfo.tsx
 import React from "react";
 
 type ShipmentInfoProps = {

@@ -5,7 +5,6 @@ export const GetParentChildNodes_ByCategory = (dataList: any[]) => {
   );
 
   // Loop by category
-
   dynamicHeaderListCategory.forEach((elementCategory: any) => {
     let dynamicHeaderListGroupWithPage = dataList.filter(
       (o) => o.type === "GROUP" && o.parentId === elementCategory.id

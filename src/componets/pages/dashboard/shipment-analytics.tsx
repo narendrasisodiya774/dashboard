@@ -1,12 +1,11 @@
 "use client";
 import Image from "next/image";
 import { Filter } from "~/assets/icons";
-import CardHeaderElement from "~/componets/common/card-header-element";
 import CoolCard from "~/componets/common/cool-card";
 import ShipmentWidget from "./shipment-widget";
 import ShipmentInfo from "./shipment-info";
 import { SHIPMENT_DATA } from "~/utils/constants";
-import { TrackBlue, TrackGreen, TrackingMap } from "~/assets/images";
+import { TrackingMap } from "~/assets/images";
 
 export default function ShipmentAnalytics() {
   return (
@@ -30,21 +29,13 @@ export default function ShipmentAnalytics() {
             <div className="flex px-2 py-1 mb-3  border h-[35px] border-[#E5E5E5] bg-[#F7F9FB] rounded-full focus-visible:outline-none w-fit">
               <h1 className="text-center opacity-60">ID: #003455MNP</h1>
             </div>
-            <div className="mb-3 relative">
+            <div className="mb-3">
               <Image
                 src={TrackingMap}
                 alt="track"
                 objectFit=""
                 className="w-full h-auto"
               />
-              <div className="absolute w-full top-[41px] left-[80px]">
-                <Image src={TrackGreen} alt="track" className="absolute" />
-                <Image
-                  src={TrackBlue}
-                  alt="track"
-                  className="absolute top-[6px] left-[101px]"
-                />
-              </div>
             </div>
             <div>
               <ShipmentInfo data={SHIPMENT_DATA} />

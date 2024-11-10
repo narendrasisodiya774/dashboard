@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Calendar, ProfilePlaceholder, TenantLogo } from "~/assets/icons";
+import { TenantLogo } from "~/assets/icons";
 
 export default function GreetingPanal() {
   return (
