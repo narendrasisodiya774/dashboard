@@ -1,16 +1,18 @@
-export const GetParentChildNodes_ByCategory = (dataList: any[]) => {
+import { ILayoutConfig } from "~/interfaces";
+
+export const GetParentChildNodes_ByCategory = (dataList: ILayoutConfig[]) => {
   // Dynamic workflow list
   let dynamicHeaderListCategory = dataList.filter(
     (o) => o.type === "MAIN_MENU"
   );
 
   // Loop by category
-  dynamicHeaderListCategory.forEach((elementCategory: any) => {
+  dynamicHeaderListCategory.forEach((elementCategory: ILayoutConfig) => {
     let dynamicHeaderListGroupWithPage = dataList.filter(
       (o) => o.type === "GROUP" && o.parentId === elementCategory.id
     );
 
-    dynamicHeaderListGroupWithPage.forEach((elementGroup: any) => {
+    dynamicHeaderListGroupWithPage.forEach((elementGroup: ILayoutConfig) => {
       let subList = dataList.filter(
         (o) => o.type === "PAGE" && o.parentId === elementGroup.id
         // && o.active
@@ -19,7 +21,7 @@ export const GetParentChildNodes_ByCategory = (dataList: any[]) => {
       // sort by display index
 
       subList = subList.sort(
-        (a: any, b: any) => a.displayIndex - b.displayIndex
+        (a: ILayoutConfig, b: ILayoutConfig) => a.displayIndex - b.displayIndex
       );
 
       elementGroup.nodes = subList;
@@ -27,12 +29,13 @@ export const GetParentChildNodes_ByCategory = (dataList: any[]) => {
 
     // remove parent node with empty children
     dynamicHeaderListGroupWithPage = dynamicHeaderListGroupWithPage.filter(
-      (o: any) => o.nodes.length > 0
+      (o: ILayoutConfig) => o.nodes.length > 0
     );
 
     // Add pages if any (pages without groups assigned)
     let dynamicHeaderListPage = dataList.filter(
-      (o: any) => o.type === "PAGE" && o.parentId === elementCategory.id
+      (o: ILayoutConfig) =>
+        o.type === "PAGE" && o.parentId === elementCategory.id
     );
 
     dynamicHeaderListGroupWithPage = [

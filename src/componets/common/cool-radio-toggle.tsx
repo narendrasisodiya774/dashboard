@@ -1,9 +1,9 @@
 import React from "react";
 import clsx from "clsx";
-import { Option } from "./cool-select";
+import { IOption } from "~/interfaces";
 
 interface RadioToggleProps {
-  options: Option[];
+  options: IOption[];
   selected: string;
   onSelect?: (value: string) => void;
 }

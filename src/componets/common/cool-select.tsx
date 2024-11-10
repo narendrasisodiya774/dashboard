@@ -1,14 +1,10 @@
 "use client";
 import React from "react";
 import clsx from "clsx";
-
-export interface Option {
-  label: string;
-  value: string;
-}
+import { IOption } from "~/interfaces";
 
 interface SelectProps {
-  options: Option[];
+  options: IOption[];
   value: string;
   onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   label?: string;

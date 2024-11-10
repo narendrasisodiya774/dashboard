@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
-import CoolSelect, { Option } from "./cool-select";
+import CoolSelect from "./cool-select";
 import CoolToggleSwitch from "./cool-toggle-switch";
-import CoolRadioToggle from "./cool-radio-toggle";
+import { IOption } from "~/interfaces";
 
 const CardHeaderElement: React.FC<{
   title: string;
   subtitle?: string;
-  options?: Option[];
+  options?: IOption[];
   value?: string;
   onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   toggleOptions?: string[];

@@ -4,17 +4,6 @@ import InventoryChart from "./inventory-chart";
 import ShipmentAnalytics from "./shipment-analytics";
 import Spotlight from "./spotlight";
 
-export interface ICashflow {
-  receivables: number;
-  made: number;
-  purchases: number;
-  totalSales: number;
-  overduePayments: number;
-  nextPaymentDue: string;
-  supplier: number;
-  topSellingProduct: string;
-}
-
 export default function AnalyticsPanel() {
   return (
     <div className="pt-6 w-full border-t border-[#E5E5E5]">

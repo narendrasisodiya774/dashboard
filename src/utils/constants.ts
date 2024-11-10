@@ -47,7 +47,7 @@ export const LAYOUT_CONFIG = [
     jsonConfig: null,
     tenantId: "APP_RS_ORU_LTD",
     app: "dashboard",
-    route: "/order",
+    route: "/orders",
     active: true,
   },
   {

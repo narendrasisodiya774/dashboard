@@ -1,9 +1,9 @@
 "use client";
 import React, { useMemo } from "react";
-import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
-import { LAYOUT_CONFIG, LOGIN_INFO } from "~/utils/constants";
-import { GetParentChildNodes_ByCategory } from "~/utils/controlles";
+import Link from "next/link";
+import clsx from "clsx";
+import { useRouter, usePathname } from "next/navigation";
 import {
   ContactsBook,
   ContactsBookActive,
@@ -27,9 +27,9 @@ import {
   WeixinMarket,
   WeixinMarketActive,
 } from "~/assets/icons";
-import Link from "next/link";
-import clsx from "clsx";
+import { LAYOUT_CONFIG, LOGIN_INFO } from "~/utils/constants";
 import HrDivider from "../common/divider";
+import { ILayoutConfig } from "~/interfaces";
 
 const mapLayoutConfigToIcon = (acronym: string, isActive: boolean) => {
   switch (acronym) {
@@ -56,20 +56,6 @@ const mapLayoutConfigToIcon = (acronym: string, isActive: boolean) => {
   }
 };
 
-interface ILayoutConfig {
-  parentId: string;
-  displayText: string;
-  displayIndex: number;
-  acronym: string;
-  id: string;
-  type: string;
-  jsonConfig?: string;
-  tenantId: string;
-  app: string;
-  route: string;
-  active: boolean;
-}
-
 const Navigation = () => {
   const router = useRouter();
   const pathname = usePathname();
@@ -85,9 +71,9 @@ const Navigation = () => {
 
       clone = clone.filter((t: ILayoutConfig) => t.active);
 
-      let dynamicHeaderList = GetParentChildNodes_ByCategory(clone);
+      // let dynamicHeaderList = GetParentChildNodes_ByCategory(clone);
 
-      dynamicHeaderList = dynamicHeaderList.sort(
+      clone = clone.sort(
         (a: ILayoutConfig, b: ILayoutConfig) => a.displayIndex - b.displayIndex
       );
       return clone;
@@ -95,28 +81,20 @@ const Navigation = () => {
     return [];
   }, []);
 
-  // const nameParts = LOGIN_INFO.name.split(" ");
-  // const userInitials = nameParts
-  //   ?.filter((namePart: any) => namePart?.length)
-  //   .map((namePart: any) => namePart[0].toUpperCase())
-  //   .join("");
-
-  const navigateToPage = (node: ILayoutConfig) => {
-    if (node.route) {
-      console.log("Route: ", node.route);
-      router.push(node.route.toLowerCase());
-    }
-  };
-
   const useActiveClass = (route: string) => {
     return pathname === route ? "bg-[#4F45E4]" : "";
   };
 
   return (
     <div className="flex flex-col justify-between py-7">
-      <div onClick={() => router.push("./")}>
-        <div className="mb-11">
-          <Image src={Logo} alt={"logo"} priority />
+      <div>
+        <div className="mb-11 cursor-pointer">
+          <Image
+            onClick={() => router.push("./")}
+            src={Logo}
+            alt={"logo"}
+            priority
+          />
         </div>
 
         <div className="flex flex-col items-center gap-4">
@@ -125,19 +103,13 @@ const Navigation = () => {
             const activeClass = useActiveClass(config.route);
 
             const iconElement = (
-              <div key={id} title={displayText}>
+              <div title={displayText}>
                 <div
-                  // onClick={() => navigateToPage(config)}
                   className={clsx(
                     "w-[38px] h-[38px] flex justify-center items-center rounded-lg",
                     activeClass
                   )}
                 >
-                  {/* <Link
-                    href={`${route}`}
-                    as={route}
-                    className="pointer-events-auto"
-                  > */}
                   <Image
                     src={mapLayoutConfigToIcon(
                       acronym,
@@ -146,7 +118,6 @@ const Navigation = () => {
                     alt={config.acronym}
                     priority
                   />
-                  {/* </Link> */}
                 </div>
               </div>
             );
@@ -159,25 +130,12 @@ const Navigation = () => {
           })}
         </div>
       </div>
-      {/* <Link
-        href={`${dynamicConfigList[0].route}`}
-        as={dynamicConfigList[0].route}
-      >
-        <Image
-          src={mapLayoutConfigToIcon(
-            dynamicConfigList[0].acronym,
-            pathname === dynamicConfigList[0].route
-          )}
-          alt={dynamicConfigList[0].acronym}
-          priority
-        />
-      </Link> */}
       <div className="flex flex-col items-center">
-        <div className="w-[20px] h-[20px] flex justify-center items-center">
+        <div className="w-[20px] h-[20px] flex justify-center items-center cursor-pointer">
           <Image src={Help} alt="help" priority />
         </div>
         <HrDivider />
-        <div className="w-[38px] h-[38px] rounded-lg bg-[#f4f4f4] flex items-center justify-center">
+        <div className="w-[38px] h-[38px] rounded-lg bg-[#f4f4f4] flex items-center justify-center cursor-pointer">
           <Image src={Gear} alt="setting" priority />
         </div>
       </div>

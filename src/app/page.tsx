@@ -9,3 +9,4 @@ export default function Home() {
     </div>
   );
 }
+// This page is redirected to Dashboard

@@ -10,7 +10,7 @@ import {
   Legend,
 } from "chart.js";
 import CoolSpinner from "./cool-spinner";
-import { ShouldRender } from "./should-render";
+import ShouldRender from "./should-render";
 
 const customLegendPlugin = {
   id: "customLegend",

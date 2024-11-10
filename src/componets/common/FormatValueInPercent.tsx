@@ -1,6 +1,6 @@
+import React from "react";
 import clsx from "clsx";
 import Image from "next/image";
-import React from "react";
 import { ArrowUp, ArrowUpRed } from "~/assets/icons";
 
 const FormatValueInPercent: React.FC<{ value: number }> = ({ value }) => {

@@ -1,11 +1,11 @@
 "use client";
 import Image from "next/image";
 import { Filter } from "~/assets/icons";
+import { TrackingMap } from "~/assets/images";
 import CoolCard from "~/componets/common/cool-card";
 import ShipmentWidget from "./shipment-widget";
 import ShipmentInfo from "./shipment-info";
 import { SHIPMENT_DATA } from "~/utils/constants";
-import { TrackingMap } from "~/assets/images";
 
 export default function ShipmentAnalytics() {
   return (

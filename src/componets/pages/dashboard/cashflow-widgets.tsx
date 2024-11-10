@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { Bag, Cash, ChartLine, ShoppingCart } from "~/assets/icons";
 import CoolCard from "~/componets/common/cool-card";
-import { ICashflow } from "./analytics-panel";
 import FormatValueWithCurrency from "~/componets/common/FormatValueWithCurrency";
 import FormatValueInPercent from "~/componets/common/FormatValueInPercent";
 import CoolIcon from "~/componets/common/cool-icon";
 import { formatCurrencyWithStyle } from "~/utils/controlles";
+import { ICashflow } from "~/interfaces";
 
 interface ICashflowProps {
   data: ICashflow;

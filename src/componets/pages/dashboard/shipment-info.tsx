@@ -1,10 +1,10 @@
 import React from "react";
 
-type ShipmentInfoProps = {
+type TShipmentInfoProps = {
   data: { [key: string]: string | number };
 };
 
-const ShipmentInfo: React.FC<ShipmentInfoProps> = ({ data }) => {
+const ShipmentInfo: React.FC<TShipmentInfoProps> = ({ data }) => {
   return (
     <div className="flex items-center">
       {Object.entries(data).map(([key, value], index) => (

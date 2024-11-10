@@ -1,3 +1,4 @@
+// This component can be placed in the layout component if it is common to all pages
 import Image from "next/image";
 import {
   Bell,
