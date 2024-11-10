@@ -1,3 +1,23 @@
+import {
+  ContactsBook,
+  ContactsBookActive,
+  Dashboard,
+  DashboardActive,
+  DocumentLine,
+  DocumentLineActive,
+  Finance,
+  FinanceActive,
+  IntegrationInstructions,
+  IntegrationInstructionsActive,
+  Order,
+  OrderActive,
+  SettingOne,
+  SettingOneActive,
+  TableReport,
+  TableReportActive,
+  WeixinMarket,
+  WeixinMarketActive,
+} from "~/assets/icons";
 import { ILayoutConfig } from "~/interfaces";
 
 export const GetParentChildNodes_ByCategory = (dataList: ILayoutConfig[]) => {
@@ -64,3 +84,28 @@ export function formatCurrencyWithStyle(value: number) {
     minimumFractionDigits: 0,
   }).format(value);
 }
+
+export const mapLayoutConfigToIcon = (acronym: string, isActive: boolean) => {
+  switch (acronym) {
+    case "DB":
+      return isActive ? DashboardActive : Dashboard;
+    case "CB":
+      return isActive ? ContactsBookActive : ContactsBook;
+    case "OR":
+      return isActive ? OrderActive : Order;
+    case "SO":
+      return isActive ? SettingOneActive : SettingOne;
+    case "DL":
+      return isActive ? DocumentLineActive : DocumentLine;
+    case "FN":
+      return isActive ? FinanceActive : Finance;
+    case "TR":
+      return isActive ? TableReportActive : TableReport;
+    case "WM":
+      return isActive ? WeixinMarketActive : WeixinMarket;
+    case "II":
+      return isActive ? IntegrationInstructionsActive : IntegrationInstructions;
+    default:
+      return Dashboard;
+  }
+};

@@ -15,7 +15,7 @@ export default function ShipmentAnalytics() {
           <div className="w-full md:w-1/3 h-auto md:h-full">
             <div className="flex justify-between items-center mb-4">
               <h1 className="tex-[16px] font-bold">Shipment Analytics</h1>
-              <div className="flex items-center border border-[#E9E9E9] bg-[#F7F9FB] cursor-pointer py-1 px-2 rounded-lg">
+              <div className="flex items-center border border-cool-light-3 bg-cool-light cursor-pointer py-1 px-2 rounded-lg">
                 <Image src={Filter} alt="filter" />
                 <span>FILTERS </span>
               </div>
@@ -26,7 +26,7 @@ export default function ShipmentAnalytics() {
             </div>
           </div>
           <div className="w-full md:w-2/3">
-            <div className="flex px-2 py-1 mb-3  border h-[35px] border-[#E5E5E5] bg-[#F7F9FB] rounded-full focus-visible:outline-none w-fit">
+            <div className="flex px-2 py-1 mb-3  border h-[35px] border-cool-light-2 bg-cool-light rounded-full focus-visible:outline-none w-fit">
               <h1 className="text-center opacity-60">ID: #003455MNP</h1>
             </div>
             <div className="mb-3">

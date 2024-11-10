@@ -27,7 +27,7 @@ const CoolSelect: React.FC<SelectProps> = ({
         value={value}
         onChange={onChange}
         className={clsx(
-          "px-2 py-1.5 border border-[#E5E5E5] min-w-[117px] max-w-[148px] rounded-md appearance-none focus-visible:outline-none opacity-50"
+          "px-2 py-1.5 border border-cool-light-2 min-w-[117px] max-w-[148px] rounded-md appearance-none focus-visible:outline-none opacity-50"
         )}
       >
         {options.map((option, index) => (

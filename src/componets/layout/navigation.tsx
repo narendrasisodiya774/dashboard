@@ -3,61 +3,14 @@ import React, { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
-import { useRouter, usePathname } from "next/navigation";
-import {
-  ContactsBook,
-  ContactsBookActive,
-  Dashboard,
-  DashboardActive,
-  DocumentLine,
-  DocumentLineActive,
-  Finance,
-  FinanceActive,
-  Gear,
-  Help,
-  IntegrationInstructions,
-  IntegrationInstructionsActive,
-  Logo,
-  Order,
-  OrderActive,
-  SettingOne,
-  SettingOneActive,
-  TableReport,
-  TableReportActive,
-  WeixinMarket,
-  WeixinMarketActive,
-} from "~/assets/icons";
+import { usePathname } from "next/navigation";
+import { Gear, Help, Logo } from "~/assets/icons";
 import { LAYOUT_CONFIG, LOGIN_INFO } from "~/utils/constants";
 import HrDivider from "../common/divider";
 import { ILayoutConfig } from "~/interfaces";
-
-const mapLayoutConfigToIcon = (acronym: string, isActive: boolean) => {
-  switch (acronym) {
-    case "DB":
-      return isActive ? DashboardActive : Dashboard;
-    case "CB":
-      return isActive ? ContactsBookActive : ContactsBook;
-    case "OR":
-      return isActive ? OrderActive : Order;
-    case "SO":
-      return isActive ? SettingOneActive : SettingOne;
-    case "DL":
-      return isActive ? DocumentLineActive : DocumentLine;
-    case "FN":
-      return isActive ? FinanceActive : Finance;
-    case "TR":
-      return isActive ? TableReportActive : TableReport;
-    case "WM":
-      return isActive ? WeixinMarketActive : WeixinMarket;
-    case "II":
-      return isActive ? IntegrationInstructionsActive : IntegrationInstructions;
-    default:
-      return Dashboard;
-  }
-};
+import { mapLayoutConfigToIcon } from "~/utils/controlles";
 
 const Navigation = () => {
-  const router = useRouter();
   const pathname = usePathname();
 
   const dynamicConfigList: ILayoutConfig[] = useMemo(() => {
@@ -81,26 +34,23 @@ const Navigation = () => {
     return [];
   }, []);
 
-  const useActiveClass = (route: string) => {
-    return pathname === route ? "bg-[#4F45E4]" : "";
+  const getActiveClass = (route: string) => {
+    return pathname === route ? "bg-cool-blue" : "";
   };
 
   return (
     <div className="flex flex-col justify-between py-7">
       <div>
-        <div className="mb-11 cursor-pointer">
-          <Image
-            onClick={() => router.push("./")}
-            src={Logo}
-            alt={"logo"}
-            priority
-          />
+        <div className="mb-11">
+          <Link href={"./"}>
+            <Image src={Logo} alt={"logo"} priority />
+          </Link>
         </div>
 
         <div className="flex flex-col items-center gap-4">
           {dynamicConfigList.map((config: ILayoutConfig) => {
             const { id, displayText, acronym, route } = config;
-            const activeClass = useActiveClass(config.route);
+            const activeClass = getActiveClass(config.route);
 
             const iconElement = (
               <div title={displayText}>

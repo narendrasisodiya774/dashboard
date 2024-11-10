@@ -29,11 +29,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="h-screen relative flex bg-[#F7F9FB] overflow-hidden">
-          <div className="w-[70px] min-w-[70px] h-full flex justify-center bg-white border-r border-[#E5E5E5]">
+        <div className="h-screen relative flex bg-cool-light overflow-hidden">
+          <div className="w-[70px] min-w-[70px] h-full flex justify-center bg-white border-r border-cool-light-2">
             <Navigation />
           </div>
-          <div className="w-full h-full bg-[#F7F9FB]">{children}</div>
+          <div className="w-full h-full bg-cool-light">{children}</div>
         </div>
       </body>
     </html>

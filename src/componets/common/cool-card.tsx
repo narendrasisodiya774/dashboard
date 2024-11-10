@@ -8,7 +8,7 @@ const CoolCard: React.FC<{
   return (
     <div
       className={clsx(
-        "bg-[#FFFFFF] w-full h-full p-4 border border-[#E5E5E5] rounded-xl shadow-md",
+        "bg-[#FFFFFF] w-full h-full p-4 border border-cool-light-2 rounded-xl shadow-md",
         classNames
       )}
     >

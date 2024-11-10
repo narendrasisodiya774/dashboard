@@ -8,7 +8,7 @@ import {
 
 export default function ShipmentWidget() {
   return (
-    <div className="bg-[#F7F9FB] rounded-lg p-4 mb-3">
+    <div className="bg-cool-light rounded-lg p-4 mb-3">
       <div className="flex justify-between mb-2">
         <div>
           <h1 className="text-[10px] opacity-60">Shipment ID </h1>

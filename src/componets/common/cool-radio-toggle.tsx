@@ -24,13 +24,15 @@ const CoolRadioToggle: React.FC<RadioToggleProps> = ({
           <div
             className={clsx(
               "w-4 h-4 rounded-full flex items-center justify-center",
-              selected === option.value ? "bg-[#4F45E4]" : "bg-[#D6D4F5]"
+              selected === option.value
+                ? "bg-cool-blue"
+                : "bg-cool-blue-light-0"
             )}
           />
           <span
             className={clsx(
               "font-semibold",
-              selected === option.value ? "text-[#4F45E4]" : "text-[#534E9C]"
+              selected === option.value ? "text-cool-blue" : "text-[#534E9C]"
             )}
           >
             {option.label}

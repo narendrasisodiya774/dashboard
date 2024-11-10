@@ -15,7 +15,7 @@ export default function GreetingPanal() {
           </div>
         </div>
         <div>
-          <span className="h-[30px] text-white bg-[#3830b7] rounded-md px-3 py-1.5">
+          <span className="h-[30px] text-white bg-cool-blue-1 rounded-md px-3 py-1.5">
             Customer
           </span>
         </div>
@@ -23,7 +23,7 @@ export default function GreetingPanal() {
       <div className="w-full text-end">
         <select
           id="date-range"
-          className="p-2 border border-[#E5E5E5] min-w-[117px] max-w-[148px] rounded-md focus-visible:outline-none opacity-50"
+          className="p-2 border border-cool-light-2 min-w-[117px] max-w-[148px] rounded-md focus-visible:outline-none opacity-50"
         >
           <option value="last7">Last 7 Days</option>
           <option value="last30">Last 30 Days</option>

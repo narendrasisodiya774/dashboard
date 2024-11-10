@@ -9,7 +9,7 @@ const SupplierClientList: React.FC<ISuppClientProps> = ({ data }) => {
       {data.map((item: ISuppClientData, index: number) => (
         <div
           key={index}
-          className="flex flex-1 justify-between items-center rounded-lg bg-[#F7F9FB] py-3 px-3 mb-3"
+          className="flex flex-1 justify-between items-center rounded-lg bg-cool-light py-3 px-3 mb-3"
         >
           <span className="font-bold">
             <span className="text-[14px] mr-4">{item.rank}</span>
